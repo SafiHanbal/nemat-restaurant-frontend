@@ -13,7 +13,9 @@ export const apiRequest = async (
   body,
   stringify = true
 ) => {
-  const baseUrl = 'http://127.0.0.1:8000/api/v1/';
+  let baseUrl;
+  if (process.env.NODE_ENV === 'development') baseUrl = 'http://127.0.0.1:8000';
+  else baseUrl = 'https://hanbal-nemat-restaurant.cyclic.app';
 
   const options = {
     method,
@@ -33,7 +35,7 @@ export const apiRequest = async (
     }
   }
 
-  const url = `${baseUrl}${endpoint}`;
+  const url = `${baseUrl}/api/v1/${endpoint}`;
   const res = await fetch(url, options);
 
   return await res.json();

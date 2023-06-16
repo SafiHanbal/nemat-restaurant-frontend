@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Conatainer = styled.div`
   position: relative;
-  min-height: 70vw;
+  min-height: 80vh;
   padding: 20px;
 
   @media only screen and (min-width: 600px) {

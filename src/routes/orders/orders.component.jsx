@@ -6,7 +6,7 @@ import { getOrdersAsync } from '../../store/cart/cartAction';
 
 import OrderItem from '../../components/order-item/order-item.compoent';
 
-import { Container, Heading } from './orders.styles';
+import { Container, Heading, NoItemText } from './orders.styles';
 
 const Orders = () => {
   const dispatch = useDispatch();
@@ -19,10 +19,16 @@ const Orders = () => {
 
   return (
     <Container>
-      <Heading className="heading-3">Orders</Heading>
-      {orders.map((order) => (
-        <OrderItem key={order._id} order={order} />
-      ))}
+      {!!orders.length ? (
+        <>
+          <Heading className="heading-3">Orders</Heading>
+          {orders.map((order) => (
+            <OrderItem key={order._id} order={order} />
+          ))}
+        </>
+      ) : (
+        <NoItemText>No previous orders. Order to see here.</NoItemText>
+      )}
     </Container>
   );
 };

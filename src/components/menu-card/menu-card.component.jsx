@@ -23,7 +23,6 @@ import {
 } from './menu-card.styles';
 
 const MenuCard = ({ menuItem }) => {
-  console.log(menuItem);
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const cartItems = useSelector(selectCartItems);

@@ -4,7 +4,9 @@ export const IMAGE_CATEGORY = {
 };
 
 export const getImgUrl = (category, imgName) => {
-  const baseUrl = 'http://127.0.0.1:8000/img';
+  let baseUrl;
+  if (process.env.NODE_ENV === 'development') baseUrl = 'http://127.0.0.1:8000';
+  else baseUrl = 'https://hanbal-nemat-restaurant.cyclic.app';
 
-  return `${baseUrl}/${category}/${imgName}`;
+  return `${baseUrl}/img/${category}/${imgName}`;
 };

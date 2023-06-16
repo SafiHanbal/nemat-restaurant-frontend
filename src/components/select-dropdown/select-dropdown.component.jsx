@@ -20,7 +20,9 @@ const SelectDropdown = ({
   return (
     <CustomDropdown onChange={handleChange}>
       {options.map((option) => (
-        <Option value={option.value}>{option.name}</Option>
+        <Option key={option.value} value={option.value}>
+          {option.name}
+        </Option>
       ))}
     </CustomDropdown>
   );
